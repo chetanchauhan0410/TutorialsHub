@@ -1,0 +1,42 @@
+@import '../data/variables.scss';
+
+.nav-container
+ {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 82.5vh;
+  border: 1px solid #555;
+ }
+
+ .mat-sidenav-container
+ {
+   height:100%;
+ }
+
+ .drawer
+ {
+     background: $drawerBackground;
+     color:$drawerFontColor;
+     margin: 10px;
+     width: 240px;
+     max-height: 75vh;
+ }
+
+ .drawer-content
+ {
+   margin:10px;
+
+ }
+
+ .card-content{
+   font-size: 16px;
+   margin: 22px;
+   font-family: cursive;
+ }
+
+ .youtube-video
+ {
+  max-width: 100%;
+  width:570px;
+ }

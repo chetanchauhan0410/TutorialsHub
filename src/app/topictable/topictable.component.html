@@ -1,0 +1,33 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!dataSource"></mat-progress-bar>
+
+<table *ngIf="dataSource" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Topic Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+    <ng-container matColumnDef="subtopics">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Subtopics </th>
+        <td mat-cell *matCellDef="let element"> {{element.subtopics}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+    <ng-container matColumnDef="estimate" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estimate (in hours) </th>
+        <td mat-cell *matCellDef="let element"> {{element.estimate}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="level">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Level </th>
+        <td mat-cell *matCellDef="let element"> {{element.level}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator *ngIf="dataSource" [pageSize]="5" [pageSizeOptions]="[5, 10]"  showFirstLastButtons></mat-paginator> 

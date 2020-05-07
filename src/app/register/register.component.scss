@@ -1,0 +1,58 @@
+/*@import '../data/variables.scss';*/
+@import '../data/theme.scss';
+
+$primary:map-get($theme, primary);
+$registrationTitleColor:mat-color($primary);
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .main-div
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-container{
+    display: flex;
+    flex-direction: column;
+    form{
+     margin :10px;
+    } 
+ }
+
+ @media (max-width: 400px) {
+  .flex-container {
+    display: block;
+  }
+}
+
+ form{
+  mat-form-field, section{
+    margin :10px;
+  }
+  mat-accordion{
+    margin :10px;
+  }
+ }
+
+ .mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+mat-slide-toggle{
+  margin-left: 16px;
+}
+
+mat-card-title{
+  color: $registrationTitleColor;
+}
+

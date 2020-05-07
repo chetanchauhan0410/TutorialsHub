@@ -1,0 +1,52 @@
+.intro-container
+{
+    display:flex;
+    flex-direction: column;
+}
+
+.first-part{
+}
+
+.second-part
+{
+
+}
+
+.courses-container
+{
+ display: flex;
+ width:100%;
+ flex-wrap:wrap;
+}
+
+.course-box{
+    min-width: 150px;
+    min-height: 100px;
+}
+
+.arrow-icon
+{
+    align-self: center;
+    border: 1px solid;
+}
+
+.card-content{
+    font-size: 1rem;
+    color: #212121;
+    margin: 22px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    line-height: 2;
+  }
+
+  mat-card
+  {
+    margin: 20px;
+  }
+
+  .selected
+  {
+    border: 1px solid #2196f3;
+    cursor: pointer;
+  }
+

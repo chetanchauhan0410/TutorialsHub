@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-toolbar class="header" [color]="toolBarTheme">
+    <div class="main">
+  
+      <div class="left">
+        <i class="material-icons">face</i>
+      </div>
+  
+      <div class="center">
+        <span>{{title}}</span>
+      </div>
+      
+      <div class="right">
+        <mat-menu #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item routerLink="home">Home</button>
+          <button mat-menu-item routerLink="introduction">Introduction</button>
+          <button mat-menu-item routerLink="register">Sign up</button>
+          <button mat-menu-item (click)="openDialog()">Suggestions</button>
+          <button mat-menu-item routerLink="topics">Topics</button>
+        </mat-menu>
+        
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <i class="material-icons">more_vert</i>
+        </button>
+      </div>  
+  
+    </div>
+   
+    </mat-toolbar>
+  
+   <div class="content">
+    <router-outlet></router-outlet>
+   </div>
+  
+  <mat-toolbar class="footer" [color]="toolBarTheme">
+    </mat-toolbar>
+</div>

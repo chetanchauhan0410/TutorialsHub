@@ -1,0 +1,56 @@
+ <mat-sidenav-container  autosize>
+    
+    <mat-sidenav mode="side" class="drawer" opened>
+      <mat-list>
+        <div mat-subheader>Topics</div>
+        
+      <mat-list-item *ngFor="let topic of topics">
+        <mat-icon aria-hidden="false" aria-label="topic">book</mat-icon>
+        <!--<i style="margin-left: 2px;" class="material-icons"></i>-->
+        <div mat-line>{{topic}}</div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      </mat-list>
+</mat-sidenav>
+<mat-sidenav-content class="drawer-content">
+  <mat-tab-group>
+    <mat-tab label="Overview">  
+      
+      <mat-card>
+      <mat-card-title>Java</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="card-content">
+          <p>
+           Java is a programming language created by James Gosling from Sun Microsystems (Sun) in 1991. The target of Java is to write a program once and then run this program on multiple operating systems. The first publicly available version of Java (Java 1.0) was released in 1995. Sun Microsystems was acquired by the Oracle Corporation in 2010. Oracle has now the steermanship for Java. In 2006 Sun started to make Java available under the GNU General Public License (GPL). Oracle continues this project called OpenJDK.
+          </p>
+          <p>
+           Over time new enhanced versions of Java have been released. The current version of Java is Java 1.8 which is also known as Java 8.
+           Java is defined by a specification and consists of a programming language, a compiler, core libraries and a runtime (Java virtual machine) The Java runtime allows software developers to write program code in other languages than the Java programming language which still runs on the Java virtual machine. The Java platform is usually associated with the Java virtual machine and the Java core libraries.
+          </p>
+      </mat-card-content>
+   </mat-card>
+
+  </mat-tab>
+    <mat-tab label="Video">
+       <mat-card>
+      <mat-card-title>Video</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="card-content">
+        <iframe  height="370" class="youtube-video" src="https://www.youtube.com/embed/TBWX97e1E9g"></iframe>
+      </mat-card-content>
+   </mat-card> 
+  </mat-tab>
+    <mat-tab label="Quiz"> 
+      <mat-card>
+        <mat-card-title>Quiz</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content class="card-content">
+          Questions
+        </mat-card-content>
+     </mat-card> 
+    </mat-tab>
+  </mat-tab-group>
+   
+    </mat-sidenav-content>
+
+ </mat-sidenav-container>

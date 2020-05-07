@@ -1,0 +1,134 @@
+<div class="flex-container">
+    <mat-card>
+      <mat-card-title >Registration</mat-card-title>
+      <mat-divider></mat-divider>
+
+      <form class="example-form" [formGroup]='registrationForm'>
+        <mat-accordion>
+          <mat-expansion-panel expanded="true">
+             <mat-expansion-panel-header>
+              <mat-panel-title>
+                Pesonal details
+              </mat-panel-title>
+             </mat-expansion-panel-header>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName='firstName' required>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName='lastName'>
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose Date" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+        
+       <section>
+            <mat-radio-group [color]="controlsThemeColor" aria-label="Select an option">
+                <mat-radio-button value="1">Male</mat-radio-button>
+                <mat-radio-button value="2">Female</mat-radio-button>
+              </mat-radio-group>
+        </section>
+
+      </mat-expansion-panel>
+      </mat-accordion>
+      
+      <mat-accordion>
+        <mat-expansion-panel>
+           <mat-expansion-panel-header>
+            <mat-panel-title>
+              Experience details
+            </mat-panel-title>
+           </mat-expansion-panel-header>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName='roleSelect'>
+                <mat-option *ngFor="let role of roles" [value]="role.id">
+                    {{role.value}}
+                  </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <section>
+          <mat-slider [color]="controlsThemeColor" thumbLabel tickInterval="1" min="1" max="50" formControlName='experience'>Experience</mat-slider>
+        </section>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+        
+        <mat-accordion>
+          <mat-expansion-panel>
+             <mat-expansion-panel-header>
+              <mat-panel-title>
+                Contact details
+              </mat-panel-title>
+             </mat-expansion-panel-header>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+           <mat-hint>Your official email.</mat-hint>
+           <mat-error *ngIf="registrationForm.get('email').hasError('email') && !registrationForm.get('email').hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="registrationForm.get('email').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+         <mat-expansion-panel-header>
+          <mat-panel-title>
+            Location details
+          </mat-panel-title>
+         </mat-expansion-panel-header>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Country Name</mat-label>
+      <input type="text"
+         placeholder="Select Country"
+         matInput
+         [matChipInputFor]="chiplist"
+         formControlName="country"
+         [matAutocomplete]="auto">
+         <mat-autocomplete (optionSelected)="selected($event)" #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+              {{option.name}}
+            </mat-option>
+         </mat-autocomplete>
+  </mat-form-field>
+  <mat-chip-list #chiplist aria-label="Country chips">
+    <mat-chip *ngIf="selectedCountry" [color]="controlsThemeColor" (removed)="removeChip()" selected>{{selectedCountry}}
+      <mat-icon matChipRemove >cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+  
+</mat-expansion-panel>
+</mat-accordion>
+        
+    
+        <section>
+            <mat-checkbox class="example-margin" formControlName="notify" [color]="controlsThemeColor">Recieve email notifications</mat-checkbox>
+            <mat-slide-toggle formControlName="subscribe" [color]="controlsThemeColor">Subscribe to newsletter.</mat-slide-toggle>
+        </section>
+    
+        <section>
+          <button mat-raised-button [color]="controlsThemeColor" (click)='onSubmit()'>Submit</button>
+        </section>
+    </form>
+    </mat-card>
+
+    
+</div>
+
