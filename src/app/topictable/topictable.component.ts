@@ -34,8 +34,8 @@ export class TopictableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'subtopics', 'estimate', 'level'];
   dataSource;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sorter: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sorter: MatSort;
 
   constructor() { 
 
